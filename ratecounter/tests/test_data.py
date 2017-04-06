@@ -82,3 +82,19 @@ class TestHoraCuichol(DataMixin, unittest.TestCase):
         'TOTAL': 103
     }
     
+
+class TestBorongBurum(DataMixin, unittest.TestCase):
+    filename = 'test-Borong-Burum.nex'
+    expected = {
+        'GAIN A': 20,
+        'GAIN B': 55,
+        'LOSS A': 7,
+        'LOSS B': 14,
+        'SHARED LOSS': 59,
+        'SHARED GAIN': 26,
+        'RETENTION': 25,
+        'ABSENCE': 186,
+        'UNCOUNTABLE': 0,
+        'TOTAL': 392
+    }
+    
