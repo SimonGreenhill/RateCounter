@@ -32,7 +32,7 @@ setup(
     ],
     keywords='language-phylogenies',
     packages=find_packages(),
-    install_requires=['python-nexus', ],
+    install_requires=['python-nexus>=1.4', ],
     tests_require=['pytest', ],
     entry_points={
         'console_scripts': [
