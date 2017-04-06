@@ -55,6 +55,8 @@ class Score(object):
             return 'SHARED LOSS'           # 3,6 = noninformative
         elif self.pattern == ('0', '0', '0'):
             return 'ABSENCE'               # nothing
+        else:  # pragma: no cover
+            raise ValueError("should not happen")
 
 
 class RateCounter(object):
@@ -90,6 +92,10 @@ class RateCounter(object):
                     raise ValueError("Site length mismatch")
         return self._nchar
     
+    @property
+    def taxa(self):
+        return self.matrix.keys() if self.matrix else {}
+    
     def _get_other(self, site, taxa):
         # get all values for this site in all other taxa not found in `taxa`
         others = [self.matrix[t][site] for t in self.matrix if t not in taxa]
@@ -104,7 +110,7 @@ class RateCounter(object):
             return '0'
         else:  # pragma: no cover
             # should not happen
-            raise ValueError("Unknown other pattern")
+            raise ValueError("Unknown other pattern %r" % others)
     
     def get_scores(self, taxon1, taxon2):
         assert taxon1 in self.matrix, "missing taxon: %s" % taxon1

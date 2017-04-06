@@ -32,6 +32,9 @@ class Test_RateCounter(unittest.TestCase):
     
     def test_nchar(self):
         assert self.rc.nchar == 27
+
+    def test_taxa(self):
+        self.assertEquals(sorted(self.rc.taxa), sorted(['L1', 'L2', 'F']))
     
     def test_error_on_invalid_matrix(self):
         with self.assertRaises(ValueError):
