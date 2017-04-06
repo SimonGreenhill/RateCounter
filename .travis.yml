@@ -9,6 +9,6 @@ install:
   - "pip install pytest-cov"
   - "pip install coveralls"
 script:
-    py.test --cov
+    py.test --cov --pyargs ratecounter
 after_success:
     coveralls
