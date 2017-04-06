@@ -8,6 +8,6 @@ install:
   - "pip install pytest-cov"
   - "pip install coveralls"
 script:
-    rm -rf build/ ; py.test --cov --pyargs ratecounter
+    py.test --cov=ratecounter
 after_success:
     coveralls
