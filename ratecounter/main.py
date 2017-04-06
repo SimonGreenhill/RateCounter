@@ -105,8 +105,8 @@ class RateCounter(object):
         elif all([_ in self.MISSING_STATES for _ in others]):
             # return ? if ALL other values are missing states
             return '?'
-        elif all([_ in self.ABSENCE_STATES for _ in others]):
-            # return 0 if ALL other values are missing states
+        elif all([_ in self.ABSENCE_STATES + self.MISSING_STATES for _ in others]):
+            # return 0 if ALL other values are absent or missing states
             return '0'
         else:  # pragma: no cover
             # should not happen

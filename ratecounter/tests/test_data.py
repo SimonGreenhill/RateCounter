@@ -113,3 +113,23 @@ class TestFriulianItalian(DataMixin, unittest.TestCase):
         'UNCOUNTABLE': 17,
         'TOTAL': 6280
     }
+
+
+
+class TestRegression1(DataMixin, unittest.TestCase):
+    # This used to raise
+    # ValueError: Unknown other pattern ['0', '0', '?', '0']
+    # when it should return absence
+    filename = 'test_regression_1.nex'
+    expected = {
+        'GAIN A': 0,
+        'GAIN B': 0,
+        'LOSS A': 0,
+        'LOSS B': 0,
+        'SHARED LOSS': 0,
+        'SHARED GAIN': 0,
+        'RETENTION': 0,
+        'ABSENCE': 1,
+        'UNCOUNTABLE': 0,
+        'TOTAL': 1
+    }
