@@ -97,4 +97,19 @@ class TestBorongBurum(DataMixin, unittest.TestCase):
         'UNCOUNTABLE': 0,
         'TOTAL': 392
     }
-    
+
+
+class TestFriulianItalian(DataMixin, unittest.TestCase):
+    filename = 'test-Friulian_Italian.nex'
+    expected = {
+        'GAIN A': 46,
+        'GAIN B': 35,
+        'LOSS A': 27,
+        'LOSS B': 10,
+        'SHARED LOSS': 97,
+        'SHARED GAIN': 51,
+        'RETENTION': 121,
+        'ABSENCE': 5876,
+        'UNCOUNTABLE': 17,
+        'TOTAL': 6280
+    }
