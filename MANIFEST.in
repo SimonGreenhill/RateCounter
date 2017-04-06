@@ -1,0 +1,9 @@
+include LICENSE
+exclude .gitignore
+exclude .coverage
+prune .cache
+prune .git
+prune build
+prune dist
+recursive-include tests *
+
