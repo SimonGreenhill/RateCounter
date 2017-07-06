@@ -17,7 +17,7 @@ class Test_CLI(unittest.TestCase):
     def test_parse(self):
         self.assertEqual(
             parse_args("test.nex", "L1", "L2"),
-            ('test.nex', 'L1', 'L2')
+            ('test.nex', 'L1', 'L2', False)
         )
     
     def test_parse_error(self):
@@ -36,4 +36,12 @@ class Test_CLI(unittest.TestCase):
         output = temp_stdout.getvalue().strip()
         for result in RateCounter.KEYLIST:
             assert re.findall("%s\s+\d+" % result, output, re.DOTALL)
+
+    def test_explain(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testdata', 'test.nex')
+        temp_stdout = StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            main(args=[filename, 'L1', 'L2', '--verbose'])
+        output = temp_stdout.getvalue().strip()
+        assert '1 <Score (0, 0, 0) = ABSENCE>' in output
         

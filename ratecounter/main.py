@@ -99,20 +99,20 @@ class RateCounter(object):
     def _get_other(self, site, taxa):
         # get all values for this site in all other taxa not found in `taxa`
         others = [self.matrix[t][site] for t in self.matrix if t not in taxa]
+        # return 1 if there is at LEAST one present state in any OTHER taxa
         if len([_ for _ in others if _ in self.PRESENT_STATES]):
-            # return 1 if there is at LEAST one present state in any taxa
             return '1'
+        # return ? if ALL other values are missing states
         elif all([_ in self.MISSING_STATES for _ in others]):
-            # return ? if ALL other values are missing states
             return '?'
+        # return 0 if ALL other values are absent or missing states
         elif all([_ in self.ABSENCE_STATES + self.MISSING_STATES for _ in others]):
-            # return 0 if ALL other values are absent or missing states
             return '0'
+        # should not happen
         else:  # pragma: no cover
-            # should not happen
             raise ValueError("Unknown other pattern %r" % others)
     
-    def get_scores(self, taxon1, taxon2):
+    def get_scores(self, taxon1, taxon2, explain=False):
         assert taxon1 in self.matrix, "missing taxon: %s" % taxon1
         assert taxon2 in self.matrix, "missing taxon: %s" % taxon2
         scores = Counter({k:0 for k in self.KEYLIST})
@@ -122,6 +122,8 @@ class RateCounter(object):
                 self.matrix[taxon2][site],
                 self._get_other(site, [taxon1, taxon2])
             )
+            if explain:
+                print(site + 1, s)
             scores[s.state] += 1
         scores['TOTAL'] = sum(scores.values())
         scores['TOTAL A'] = scores.get('GAIN A', 0) + scores.get('LOSS A', 0)
@@ -131,3 +133,4 @@ class RateCounter(object):
     def display(self, scores):
         for k in self.KEYLIST:
             print("%20s\t%d" % (k, scores.get(k, 0)))
+    

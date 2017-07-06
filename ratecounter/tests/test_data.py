@@ -28,6 +28,22 @@ class DataMixin(object):  # pragma: no cover
                 ))
     
 
+class TestRandom(DataMixin, unittest.TestCase):
+    filename = 'test-random.nex'
+    expected = {
+        'GAIN A': 1,
+        'GAIN B': 1,
+        'LOSS A': 3,
+        'LOSS B': 3,
+        'SHARED LOSS': 3,
+        'SHARED GAIN': 2,
+        'RETENTION': 3,
+        'ABSENCE': 0,
+        'UNCOUNTABLE': 11,
+        'TOTAL': 27
+    }
+
+
 class TestAgtaGaddang(DataMixin, unittest.TestCase):
     filename = 'test-Agta_Gaddang.nex'
     expected = {

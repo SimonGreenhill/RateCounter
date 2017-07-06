@@ -1,0 +1,41 @@
+#NEXUS
+
+BEGIN DATA;
+    DIMENSIONS NTAX=5 NCHAR=27;
+    FORMAT DATATYPE=STANDARD MISSING=? GAP=- SYMBOLS="01";
+MATRIX
+[  1 = RETENTION             ]
+[  2 = RETENTION             ]
+[  3 = RETENTION             ]
+[  4 = LOSS A                ]
+[  5 = LOSS A                ]
+[  6 = LOSS A                ]
+[  7 = LOSS B                ]
+[  8 = LOSS B                ]
+[  9 = LOSS B                ]
+[ 10 = SHARED GAIN           ]
+[ 11 = SHARED GAIN           ]
+[ 12 = UNCOUNTABLE           ]
+[ 13 = UNCOUNTABLE           ]
+[ 14 = UNCOUNTABLE           ]
+[ 15 = UNCOUNTABLE           ]
+[ 16 = UNCOUNTABLE           ]
+[ 17 = UNCOUNTABLE           ]
+[ 18 = UNCOUNTABLE           ]
+[ 19 = UNCOUNTABLE           ]
+[ 20 = UNCOUNTABLE           ]
+[ 21 = SHARED LOSS           ]
+[ 22 = SHARED LOSS           ]
+[ 23 = SHARED LOSS           ]
+[ 24 = GAIN A                ]
+[ 25 = GAIN B                ]
+[ 26 = UNCOUNTABLE           ]
+[ 27 = UNCOUNTABLE           ]
+
+A   111 000 111 111 ???? 1001 000 10 ?0
+B   111 111 000 111 1001 ???? 000 01 0?
+F1  111 100 100 00? 1100 1100 100 00 00
+F2  110 110 110 0?? 1100 1100 110 00 00
+F3  100 111 111 0?? 1110 1110 111 00 00
+;
+END;
