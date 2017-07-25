@@ -29,7 +29,7 @@ class DataMixin(object):  # pragma: no cover
     
 
 class TestRandom(DataMixin, unittest.TestCase):
-    filename = 'test-random.nex'
+    filename = 'test-Random.nex'
     expected = {
         'GAIN A': 1,
         'GAIN B': 1,
@@ -41,6 +41,22 @@ class TestRandom(DataMixin, unittest.TestCase):
         'ABSENCE': 0,
         'UNCOUNTABLE': 11,
         'TOTAL': 27
+    }
+
+
+class TestRandom2(DataMixin, unittest.TestCase):
+    filename = 'test-Random2.nex'
+    expected = {
+        'GAIN A': 8,
+        'GAIN B': 20,
+        'LOSS A': 29,
+        'LOSS B': 22,
+        'SHARED LOSS': 0,
+        'SHARED GAIN': 0,
+        'RETENTION': 262,
+        'ABSENCE': 0,
+        'UNCOUNTABLE': 0,
+        'TOTAL': 341
     }
 
 
