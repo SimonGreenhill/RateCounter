@@ -9,7 +9,7 @@ It is based on the method in:
 
     Bromham L, Hua X, Fitzpatrick T, & Greenhill SJ. 2015. [Rate of language evolution is affected by population size](http://www.pnas.org/content/112/7/2097.abstract). Proceedings of the National Academy of Sciences, USA. 
   
-**Installation**
+**Installation:**
 
 ```shell
 pip install ratecounter
