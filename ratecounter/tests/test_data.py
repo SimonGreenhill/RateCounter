@@ -30,6 +30,10 @@ class DataMixin(object):  # pragma: no cover
                 key, self.scores[key], self.expected[key], self.filename
             ))
     
+    def test_nexus_nchar_eq_total(self):
+        nchar = self.rc.matrix[list(self.rc.matrix.keys())[0]]
+        assert len(nchar) == self.expected['TOTAL']
+    
     def test_GAIN_A(self):
         self._test('GAIN A')
 
@@ -100,6 +104,7 @@ class TestAgtaGaddang(DataMixin, unittest.TestCase):
         'GAIN B': 40,
         'LOSS A': 29,
         'LOSS B': 31,
+        'TOTAL': 138,
     }
 
 
@@ -110,6 +115,7 @@ class TestSeimatWuvulu(DataMixin, unittest.TestCase):
         'GAIN B': 91,
         'LOSS A': 35,
         'LOSS B': 40,
+        'TOTAL': 248,
     }
 
 
@@ -120,6 +126,7 @@ class TestLithuanianLatvian(DataMixin, unittest.TestCase):
         'GAIN B': 58,
         'LOSS A': 38,
         'LOSS B': 33,
+        'TOTAL': 338,
     }
 
 
@@ -130,6 +137,7 @@ class TestDanishSwedish(DataMixin, unittest.TestCase):
         'GAIN B': 13,
         'LOSS A': 22,
         'LOSS B': 14,
+        'TOTAL': 309,
     }
 
 class TestHoraCuichol(DataMixin, unittest.TestCase):
@@ -180,6 +188,25 @@ class TestFriulianItalian(DataMixin, unittest.TestCase):
     }
 
 
+class TestB52B53(DataMixin, unittest.TestCase):
+    filename = 'test-B52_B53.nex'
+    expected = {
+        'GAIN A': 1,
+        'GAIN B': 2,
+        'LOSS A': 7,
+        'LOSS B': 8,
+        'SHARED LOSS': 0,
+        'SHARED GAIN': 1,
+        'RETENTION': 88,
+        'ABSENCE': 0,
+        'UNCOUNTABLE': 1,
+        'TOTAL': 109
+    }
+
+    # def test_XXXX(self):
+    #     scores = self.rc.get_scores('A', 'B', explain=True)
+    #     print(scores)
+    #     assert False
 
 
 class TestRegression1(DataMixin, unittest.TestCase):
