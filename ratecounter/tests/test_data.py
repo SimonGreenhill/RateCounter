@@ -13,10 +13,11 @@ class DataMixin(object):  # pragma: no cover
     filename = None
     expected = {}
     
-    def setUp(self):
-        filename = os.path.join(os.path.dirname(__file__), 'testdata', self.filename)
-        self.rc = RateCounter(nexusfile=filename)
-        self.scores = self.rc.get_scores('A', 'B')
+    @classmethod
+    def setUpClass(cls):
+        filename = os.path.join(os.path.dirname(__file__), 'testdata', cls.filename)
+        cls.rc = RateCounter(nexusfile=filename)
+        cls.scores = cls.rc.get_scores('A', 'B')
     
     def _test(self, key):
         if key not in self.expected:
@@ -177,6 +178,8 @@ class TestFriulianItalian(DataMixin, unittest.TestCase):
         'UNCOUNTABLE': 17,
         'TOTAL': 6280
     }
+
+
 
 
 class TestRegression1(DataMixin, unittest.TestCase):
