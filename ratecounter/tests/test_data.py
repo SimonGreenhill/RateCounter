@@ -18,15 +18,47 @@ class DataMixin(object):  # pragma: no cover
         self.rc = RateCounter(nexusfile=filename)
         self.scores = self.rc.get_scores('A', 'B')
     
-    def test_scores(self):
-        for key in self.expected:
-            if key not in self.scores:
-                raise AssertionError("Missing %s from scores in %s" % (key, self.filename))
-            if self.scores[key] != self.expected[key]:
-                raise AssertionError("Mismatch %s (%d!=%d) from scores in %s" % (
-                    key, self.scores[key], self.expected[key], self.filename
-                ))
+    def _test(self, key):
+        if key not in self.expected:
+            # don't care about testing it, ignore
+            return True
+        if key not in self.scores:
+            raise AssertionError("Missing %s from scores in %s" % (key, self.filename))
+        if self.scores[key] != self.expected[key]:
+            raise AssertionError("Mismatch %s (%d!=%d) from scores in %s" % (
+                key, self.scores[key], self.expected[key], self.filename
+            ))
     
+    def test_GAIN_A(self):
+        self._test('GAIN A')
+
+    def test_GAIN_B(self):
+        self._test('GAIN B')
+
+    def test_LOSS_A(self):
+        self._test('LOSS A')
+
+    def test_LOSS_B(self):
+        self._test('LOSS B')
+
+    def test_SHARED_LOSS(self):
+        self._test('SHARED LOSS')
+
+    def test_SHARED_GAIN(self):
+        self._test('SHARED GAIN')
+
+    def test_RETENTION(self):
+        self._test('RETENTION')
+
+    def test_ABSENCE(self):
+        self._test('ABSENCE')
+
+    def test_UNCOUNTABLE(self):
+        self._test('UNCOUNTABLE')
+
+    def test_TOTAL(self):
+        self._test('TOTAL')
+
 
 class TestRandom(DataMixin, unittest.TestCase):
     filename = 'test-Random.nex'
@@ -147,7 +179,6 @@ class TestFriulianItalian(DataMixin, unittest.TestCase):
     }
 
 
-
 class TestRegression1(DataMixin, unittest.TestCase):
     # This used to raise
     # ValueError: Unknown other pattern ['0', '0', '?', '0']
@@ -165,3 +196,7 @@ class TestRegression1(DataMixin, unittest.TestCase):
         'UNCOUNTABLE': 0,
         'TOTAL': 1
     }
+
+
+
+
