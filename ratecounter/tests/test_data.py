@@ -197,16 +197,12 @@ class TestB52B53(DataMixin, unittest.TestCase):
         'LOSS B': 8,
         'SHARED LOSS': 0,
         'SHARED GAIN': 1,
-        'RETENTION': 88,
+        'RETENTION': 89,
         'ABSENCE': 0,
         'UNCOUNTABLE': 1,
         'TOTAL': 109
     }
 
-    # def test_XXXX(self):
-    #     scores = self.rc.get_scores('A', 'B', explain=True)
-    #     print(scores)
-    #     assert False
 
 
 class TestRegression1(DataMixin, unittest.TestCase):
