@@ -51,7 +51,7 @@ class Test_Score(unittest.TestCase):
     
     def test_repr(self):
         for p, expected in TEST_DATA:
-            repr(Score(*p))
+            self.assertIn(expected, repr(Score(*p)))
     
     def test_state(self):
         for p, expected in TEST_DATA:

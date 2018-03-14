@@ -38,7 +38,7 @@ class Test_RateCounter(unittest.TestCase):
     
     def test_error_on_invalid_matrix(self):
         with self.assertRaises(ValueError):
-            RateCounter({
+            _ = RateCounter({
                 "A": ['1', '0'],
                 "B": ['1', '0'],
                 "C": ['1', '0', '1']
