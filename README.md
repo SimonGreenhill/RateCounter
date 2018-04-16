@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/SimonGreenhill/RateCounter.svg?branch=master)](https://travis-ci.org/SimonGreenhill/RateCounter)
 [![Coverage Status](https://coveralls.io/repos/github/SimonGreenhill/RateCounter/badge.svg?branch=master)](https://coveralls.io/github/SimonGreenhill/RateCounter?branch=master)
+[![DOI](https://zenodo.org/badge/DOI/10.3389/fpsyg.2018.00576.svg)](https://doi.org/10.3389/fpsyg.2018.00576)
+
 
 *RateCounter* is a python library and program for calculating the number of rate differences between taxa given a nexus file. 
 
