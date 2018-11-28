@@ -34,7 +34,7 @@ class Test_RateCounter(unittest.TestCase):
         assert self.rc.nchar == 27
 
     def test_taxa(self):
-        self.assertEquals(sorted(self.rc.taxa), sorted(['L1', 'L2', 'F']))
+        self.assertEqual(sorted(self.rc.taxa), sorted(['L1', 'L2', 'F']))
     
     def test_error_on_invalid_matrix(self):
         with self.assertRaises(ValueError):
@@ -83,4 +83,4 @@ class Test_RateCounter(unittest.TestCase):
             self.rc.display(self.scores)
         output = temp_stdout.getvalue().strip()
         for result in self.rc.KEYLIST:
-            assert re.findall("%s\s+\d+" % result, output, re.DOTALL)
+            assert re.findall(r"%s\s+\d+" % result, output, re.DOTALL)

@@ -12,7 +12,7 @@ It is based on the method in:
 **Installation:**
 
 ```shell
-pip install ratecounter
+pip install RateCounter
 ```
 
 **Usage:**
