@@ -2,13 +2,19 @@
 
 [![Build Status](https://travis-ci.org/SimonGreenhill/RateCounter.svg?branch=master)](https://travis-ci.org/SimonGreenhill/RateCounter)
 [![Coverage Status](https://coveralls.io/repos/github/SimonGreenhill/RateCounter/badge.svg?branch=master)](https://coveralls.io/github/SimonGreenhill/RateCounter?branch=master)
+[![DOI](https://zenodo.org/badge/DOI/10.3389/fpsyg.2018.00576.svg)](https://doi.org/10.3389/fpsyg.2018.00576)
+
 
 *RateCounter* is a python library and program for calculating the number of rate differences between taxa given a nexus file. 
 
 It is based on the method in:
 
-    Bromham L, Hua X, Fitzpatrick T, & Greenhill SJ. 2015. [Rate of language evolution is affected by population size](http://www.pnas.org/content/112/7/2097.abstract). Proceedings of the National Academy of Sciences, USA. 
-  
+```
+Greenhill SJ, Hua X, Welsh CF, Schneemann H & Bromham L. 2018. [Population Size and the Rate of Language Evolution: A Test across Indo-European, Austronesian and Bantu Languages](https://www.frontiersin.org/articles/10.3389/fpsyg.2018.00576/abstract). Frontiers in Psychology doi: 10.3389/fpsyg.2018.00576
+```
+
+Please cite this paper if you find this software helpful.
+
 **Installation:**
 
 ```shell
